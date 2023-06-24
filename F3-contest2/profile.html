@@ -1,0 +1,53 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Profile Page</title>
+</head>
+<body>
+
+    <div class="profile_page">
+        <nav class="nav_bar">
+            <h2>Header</h1>
+             <h2>Signup     Profile</h2>
+        </nav>
+        <hr>
+        <h1 id="prof">Profile</h1>
+  <div class="profile">
+    <h2 id="fullName"></h2>
+    <h2 id="email"></h2>
+    <h2 id="password"></h2>
+    <button class="lbtn">Logout</button>
+  </div>
+    </div>
+  <script src="script.js"></script>
+  <script>
+  
+const user = JSON.parse(localStorage.getItem('user-copy'));
+if (user) {
+  document.getElementById('fullName').textContent = `Full Name: ${user.fullName}`;
+  document.getElementById('email').textContent = `Email: ${user.email}`;
+  document.getElementById('password').textContent = `Password: ${user.password}`;
+
+   const logoutButton = document.querySelector('.lbtn');
+  logoutButton.addEventListener('click', handleLogout);
+} else {
+  // Redirect back
+  window.location.href = 'index.html'; 
+}
+
+
+function handleLogout() {
+  //removing
+  localStorage.removeItem('user-copy');
+    window.location.href = 'index.html';
+}
+
+  </script>
+</body>
+</html>
+
